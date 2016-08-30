@@ -1,5 +1,5 @@
 # Tools
-在 iOS 日常开发中可能用到的简单工具.提示框,以及对字符串处理
+在 iOS 日常开发中可能用到的简单工具.提示框,以及对字符串,时间戳处理
 
 1,将 Tools.h Tools.m 导入到你的项目中
 
@@ -24,14 +24,14 @@
     NSLog(@"时间戳==>北京时间:%@",[tools getBeiJingTimeFromTimestamp:@"1472486400"]);
 
 
-+ (void)showSuccess;
-+ (void)showSuccess:(NSString *)message;
-+ (void)showFailure;
-+ (void)showFailure:(NSString *)message;
-+ (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message;
-+ (NSString *)getTimestampFromNowTime;
-+(NSString *)filterString:(NSString *)string;//过滤字符串(过滤空格)
-+(BOOL)checkEmail:(NSString *)email;//用正则检查邮箱格式是否正确
-+(BOOL)checkMobile:(NSString *)mobile;//检查字符串是否为手机号码
--(NSString *)getTimestampFromBeiJingTime:(NSString *)beijingTime;
--(NSString *)getBeiJingTimeFromTimestamp:(NSString *)timestamp;
+		+ (void)showSuccess;
+		+ (void)showSuccess:(NSString *)message;
+		+ (void)showFailure;
+		+ (void)showFailure:(NSString *)message;
+		+ (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message;
+		+ (NSString *)getTimestampFromNowTime;
+		+(NSString *)filterString:(NSString *)string;//过滤字符串(过滤空格)
+		+(BOOL)checkEmail:(NSString *)email;//用正则检查邮箱格式是否正确
+		+(BOOL)checkMobile:(NSString *)mobile;//检查字符串是否为手机号码
+		-(NSString *)getTimestampFromBeiJingTime:(NSString *)beijingTime;
+		-(NSString *)getBeiJingTimeFromTimestamp:(NSString *)timestamp;
