@@ -66,30 +66,21 @@
 
 //北京时间格式:2016-8-30//如若其他格式,自行在下方修改NSDateFormatter即可
 -(NSString *)getTimestampFromBeiJingTime:(NSString *)beijingTime{
-    [self initDateFormatter];
     NSDate *date =[self.dateFormatter dateFromString:beijingTime];//北京时间格式:2016-8-30
     NSString *timeSp=[NSString stringWithFormat:@"%ld",(long)[date timeIntervalSince1970]];
     return timeSp;
 }
 -(NSString *)getBeiJingTimeFromTimestamp:(NSString *)timestamp{
-    [self initDateFormatter];
     NSTimeInterval time=[timestamp doubleValue]+28800;
     NSDate *detaildate=[NSDate dateWithTimeIntervalSince1970:time];
     NSString *currentDateStr=[self.dateFormatter stringFromDate:detaildate];
     return currentDateStr;
 }
--(void)initDateFormatter{
-    if (self.dateFormatter==nil) {
-        self.dateFormatter=[[NSDateFormatter alloc] init];
-        [self.dateFormatter setDateFormat:@"yyyy-MM-dd"];
+-(NSDateFormatter *)dateFormatter{
+    if (_dateFormatter==nil) {
+        _dateFormatter=[[NSDateFormatter alloc] init];
+        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
+    return _dateFormatter;
 }
-#pragma mark 在类中使用懒加载时,会有错误出现,大概是因为死循环,有兴趣的小伙伴可以自行搜索答案
-//-(NSDateFormatter *)dateFormatter{
-//    if (self.dateFormatter==nil) {
-//        self.dateFormatter=[[NSDateFormatter alloc] init];
-//        [self.dateFormatter setDateFormat:@"yyyy-MM-dd"];
-//    }
-//    return self.dateFormatter;
-//}
 @end
